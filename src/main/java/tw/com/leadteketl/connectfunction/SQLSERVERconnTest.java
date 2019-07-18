@@ -14,7 +14,7 @@ public class SQLSERVERconnTest {
 
 	public static final String readTableNameSQL = "SELECT name FROM master.dbo.sysdatabases";
 
-	public boolean connTest(t_database t_database) throws SQLException {
+	public boolean connTest(t_datasource t_database) throws SQLException {
 		String insertTableNameSQL = "INSERT INTO t_table_master(project_id,database_id,table_id) values (" +t_database.project_id+","+t_database.database_id+","+ "?)";
 		String url = null;
 		Connection conn = null;

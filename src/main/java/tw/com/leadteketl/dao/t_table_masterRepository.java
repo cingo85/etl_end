@@ -3,12 +3,9 @@ package tw.com.leadteketl.dao;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 
-import tw.com.leadteketl.bean.t_database;
-import tw.com.leadteketl.bean.t_project;
 import tw.com.leadteketl.bean.t_table_master;
 
 @RepositoryRestResource

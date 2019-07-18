@@ -15,7 +15,7 @@ import lombok.Data;
 @Table(name="t_database")
 @ApiModel(description= "資料庫表單")
 @Data
-public class t_database implements java.io.Serializable{
+public class t_datasource implements java.io.Serializable{
 
 
 	/**
@@ -33,17 +33,21 @@ public class t_database implements java.io.Serializable{
 	@Column(name="project_id",nullable = false,unique=true,length=100)
 	public String project_id;
 	
-	@ApiModelProperty(value = "資料庫代碼", required = true)
-	@Column(name="database_id",nullable = false,unique=true,length=200)
-	public String database_id;
+	@ApiModelProperty(value = "資料源代碼", required = true)
+	@Column(name="datasource_id",nullable = false,unique=true,length=200)
+	public String datasource_id;
 	
-	@ApiModelProperty(value = "是否為目標資料庫", required = true)
-	@Column(name="is_output_database",nullable = false,length=1)
-	public boolean is_output_database;
+	@ApiModelProperty(value = "是否為來源資料源", required = true)
+	@Column(name="is_input_datasource",nullable = false,length=1)
+	public boolean is_input_datasource;
 	
-	@ApiModelProperty(value = "資料庫類型", required = true)
-	@Column(name="database_type",nullable = false,length=100)
-	public String database_type;	
+	@ApiModelProperty(value = "是否為目標資料源", required = true)
+	@Column(name="is_output_datasource",nullable = false,length=1)
+	public boolean is_output_datasource;
+	
+	@ApiModelProperty(value = "資料源類型", required = true)
+	@Column(name="datasource_type",nullable = false,length=100)
+	public String datasource_type;	
 	
 	@ApiModelProperty(value = "資料庫IP", required = true)
 	@Column(name="database_ip",nullable = false,length=200)
@@ -53,9 +57,9 @@ public class t_database implements java.io.Serializable{
 	@Column(name="database_port",nullable = true,length=100)
 	public String database_port;
 	
-	@ApiModelProperty(value = "資料庫名稱", required = true)
-	@Column(name="database_name",nullable = false,length=100)
-	public String database_name;	
+	@ApiModelProperty(value = "資料源名稱", required = true)
+	@Column(name="datasource_name",nullable = false,length=255)
+	public String datasource_name;	
 	
 	@ApiModelProperty(value = "資料庫輪廓", required = true)
 	@Column(name="database_schema_name",nullable = true,length=100)
@@ -77,5 +81,8 @@ public class t_database implements java.io.Serializable{
 	@Column(name="state",nullable = false,length=10)
 	public String state;
 	
+	@ApiModelProperty(value = "資料根目錄", required = true)
+	@Column(name="data_root",nullable = false,length=255)
+	public String data_root;	
 
 }

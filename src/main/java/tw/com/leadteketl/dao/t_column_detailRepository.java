@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 import tw.com.leadteketl.bean.t_column_detail;
-import tw.com.leadteketl.bean.t_database;
 
 public interface t_column_detailRepository extends JpaRepository<t_column_detail,Integer>{
 	
