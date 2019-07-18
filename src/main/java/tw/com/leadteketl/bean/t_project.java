@@ -73,6 +73,6 @@ public class t_project implements java.io.Serializable{
 	
 	@OneToMany(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "t_project_sn")
-	public List<t_datasource> t_database;
+	public List<t_datasource> t_datasource;
 
 }

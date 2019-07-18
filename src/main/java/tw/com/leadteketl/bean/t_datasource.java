@@ -12,7 +12,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Entity
-@Table(name="t_database")
+@Table(name="t_datasource")
 @ApiModel(description= "資料庫表單")
 @Data
 public class t_datasource implements java.io.Serializable{

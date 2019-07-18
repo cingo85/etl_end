@@ -5,10 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.List;
 
-import tw.com.leadteketl.bean.t_database;
+import tw.com.leadteketl.bean.t_datasource;
 
 public class SQLSERVERconnTest {
 

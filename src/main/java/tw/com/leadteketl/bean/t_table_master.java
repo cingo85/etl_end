@@ -73,7 +73,7 @@ public class t_table_master implements java.io.Serializable{
 	
 	@ManyToOne
 	@JoinColumns({@JoinColumn(name="t_table_master_project_id",referencedColumnName = "project_id")
-	,@JoinColumn(name="t_table_master_database_id",referencedColumnName = "database_id")})
+	,@JoinColumn(name="t_table_master_database_id",referencedColumnName = "datasource_id")})
 	public t_datasource t_database;
 
 }

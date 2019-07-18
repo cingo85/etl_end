@@ -1,12 +1,16 @@
 package tw.com.leadteketl.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import io.swagger.annotations.ApiModel;
@@ -41,5 +45,9 @@ public class t_member implements Serializable {
 	@ApiModelProperty(value = "職稱", required = true)
 	@Column(name = "member_title", nullable = false, length = 200)
 	public String member_title;
+	
+	@OneToMany(cascade = {CascadeType.ALL})
+	@JoinColumn(name="t_project_sn")
+	public List<t_project> t_project; 
 
 }
