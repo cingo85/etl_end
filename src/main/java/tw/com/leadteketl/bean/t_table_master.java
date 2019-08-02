@@ -60,11 +60,11 @@ public class t_table_master implements java.io.Serializable{
 	public String table_pk_name;
 	
 	@ApiModelProperty(value = "表單欄位數量", required = true)
-	@Column(name="table_column_quantity",nullable = false,length=100)
+	@Column(name="table_column_quantity",nullable = true,length=100)
 	public Integer table_column_quantity;
 	
 	@ApiModelProperty(value = "表單資料數量", required = true)
-	@Column(name="table_data_quantity",nullable = false,length=100)
+	@Column(name="table_data_quantity",nullable = true,length=100)
 	public Integer table_data_quantity;
 	
 	@ApiModelProperty(value = "狀態", required = true)

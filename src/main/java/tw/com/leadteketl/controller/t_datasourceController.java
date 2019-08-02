@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,13 +21,13 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import tw.com.leadteketl.bean.t_datasource;
-import tw.com.leadteketl.connectfunction.SQLSERVERconnTest;
 import tw.com.leadteketl.dao.t_datasourceRepository;
 import tw.com.leadteketl.dao.t_table_masterRepository;
 
 @Api(tags = "資料庫表單")
 @RestController
 @RequestMapping(value = "/api/t_datasource")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @Controller
 public class t_datasourceController {
 
@@ -36,7 +37,6 @@ public class t_datasourceController {
 	@Autowired
 	t_table_masterRepository t_table_masterRepository;
 	
-	SQLSERVERconnTest sqlserverconn = new SQLSERVERconnTest();
 
 	@ApiOperation(value = "取得專案資料庫", notes = "列出所有專案資料庫")
 	@ResponseStatus(HttpStatus.OK)

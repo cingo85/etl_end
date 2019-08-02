@@ -29,6 +29,10 @@ public class t_memberService{
     	return "新增帳號成功";
     }
     
+    /*
+     * 登入
+     * */
+    
     public boolean loginMember(t_member t_member) {
     	
     	t_member login_check = t_memberRepository.findByusername(t_member.username);

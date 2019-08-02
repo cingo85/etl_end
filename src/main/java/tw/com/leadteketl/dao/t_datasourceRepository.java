@@ -9,7 +9,7 @@ import org.springframework.data.rest.core.annotation.RestResource;
 
 import tw.com.leadteketl.bean.t_datasource;
 
-@RepositoryRestResource
+
 public interface t_datasourceRepository extends JpaRepository<t_datasource,Integer>{
 
 	
@@ -26,13 +26,7 @@ public interface t_datasourceRepository extends JpaRepository<t_datasource,Integ
 	@RestResource(exported = false)
 	void delete(t_datasource t);
 
-	@Query(value="SELECT name FROM master.dbo.sysdatabases",nativeQuery = true)
-	List<String> findSqlserverAllDbSchema();
-	
-	@Query(value ="SELECT TABLE_NAME, count(TABLE_NAME)'TableRows' " + 
-			"FROM IR_國際事務管理系統.INFORMATION_SCHEMA.COLUMNS " + 
-			"GROUP BY TABLE_NAME",nativeQuery = true)
-	List<t_datasource> findSQLSERVERAllColumnInfoMation();
+
 	
 	
 }
