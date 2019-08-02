@@ -1,29 +1,0 @@
-server:
-  port: ${port:8093}
-  tomcat:
-    uri-encoding: UTF-8
-spring:
-  application:
-    name: demo
-  messages:
-    encoding: UTF-8
-  http:
-    encoding:
-      enabled: true
-      charset: UTF-8
-      force: true
-  datasource:
-     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-     url: jdbc:sqlserver://172.16.2.82:1433;Database=Project_Data
-     username: leadtek
-     password: leadtek
-  jpa:
-    show-sql: true
-    database: SQL_SERVER 
-    hibernate:      ddl-auto: update       naming:        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
-        strategy: org.hibernate.cfg.ImprovedNamingStrategy
-    properties.hibernate.dialect: org.hibernate.dialect.SQLServer2008Dialect
-    database-platform: org.hibernate.dialect.SQLServer2008Dialect
-        
-      
- 
