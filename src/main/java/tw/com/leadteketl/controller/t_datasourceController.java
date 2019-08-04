@@ -65,6 +65,16 @@ public class t_datasourceController {
 
 		return t_datasourceRepository.save(t_datasource);
 	}
+	
+	@ApiOperation(value = "查詢專案資料庫", notes = "查詢專案資料庫")
+	@ApiResponses(value = { @ApiResponse(code = 201, message = "查詢專案資料庫") })
+	@ResponseStatus(HttpStatus.OK)
+	@PostMapping(value = "/queryDataSourceByProjectId", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<t_datasource> queryDataSourceByProjectId(@ApiParam(required = true, value = "專案表單") @RequestBody t_datasource t_datasource){
+		System.out.println(t_datasource.getProjectId()
+				);
+		return t_datasourceRepository.findByprojectId(t_datasource.projectId);
+	}
 
 //	public boolean SQLSERVERconnTest(t_datasource t_datasource) throws SQLException {
 //		String url = null;

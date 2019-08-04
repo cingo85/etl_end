@@ -33,7 +33,7 @@ public class t_datasource implements java.io.Serializable{
 	
 	@ApiModelProperty(value = "專案代碼", required = true)
 	@Column(name="project_id",nullable = false,length=36)
-	public String project_id;
+	public String projectId;
 	
 	@ApiModelProperty(value = "資料源代碼", required = true)
 	@Column(name="datasource_id",nullable = false,unique=true,length=36)
@@ -95,12 +95,12 @@ public class t_datasource implements java.io.Serializable{
 		this.sn = sn;
 	}
 
-	public String getProject_id() {
-		return project_id;
+	public String getProjectId() {
+		return projectId;
 	}
 
-	public void setProject_id(String project_id) {
-		this.project_id = project_id;
+	public void setprojectId(String projectId) {
+		this.projectId = projectId;
 	}
 
 	public String getDatasource_id() {

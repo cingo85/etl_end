@@ -13,6 +13,9 @@ import tw.com.leadteketl.bean.t_datasource;
 public interface t_datasourceRepository extends JpaRepository<t_datasource,Integer>{
 
 	
+	
+	List<t_datasource> findByprojectId(String project_id);
+	
 	@Override
 	t_datasource getOne(Integer id);
 
