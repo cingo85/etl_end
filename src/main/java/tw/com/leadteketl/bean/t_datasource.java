@@ -99,9 +99,9 @@ public class t_datasource implements java.io.Serializable{
 		return projectId;
 	}
 
-	public void setprojectId(String projectId) {
+	public void setProjectId(String projectId) {
 		this.projectId = projectId;
-	}
+	}	
 
 	public String getDatasource_id() {
 		return datasource_id;
@@ -205,7 +205,9 @@ public class t_datasource implements java.io.Serializable{
 
 	public void setData_root(String data_root) {
 		this.data_root = data_root;
-	}	
+	}
+
+
 	
 	
 

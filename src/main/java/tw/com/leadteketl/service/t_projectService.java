@@ -24,6 +24,11 @@ public class t_projectService {
 	t_datasourceRepository t_datasourceRepository;
 	
 	public String saveNewProject(t_project t_project) {
+		
+		if(t_project.t_datasource2.size()>0) {
+			t_project.t_datasource.addAll(t_project.t_datasource2);
+		}
+		
 		SimpleDateFormat nowdate = new java.text.SimpleDateFormat("yyyy-MM-dd"); 
 	
 //		t_project.setProject_id(UUID.randomUUID().toString());

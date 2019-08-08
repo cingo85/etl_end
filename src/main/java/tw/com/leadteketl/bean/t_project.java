@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -42,7 +43,7 @@ public class t_project implements java.io.Serializable{
 	
 	@ApiModelProperty(value = "專案代碼", required = true)
 	@Column(name="project_id",nullable = false,unique=true,length=36)
-	public String project_id;
+	public String projectId;
 	
 	@ApiModelProperty(value = "專案名稱", required = true)
 	@Column(name="project_name",nullable = false,length=30)
@@ -94,6 +95,9 @@ public class t_project implements java.io.Serializable{
 	@OneToMany(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "t_project_project_id")
 	public List<t_datasource> t_datasource;
+	
+	@Transient
+	public List<t_datasource> t_datasource2;
 
 	public Integer getSn() {
 		return sn;
@@ -103,12 +107,14 @@ public class t_project implements java.io.Serializable{
 		this.sn = sn;
 	}
 
-	public String getProject_id() {
-		return project_id;
+	
+
+	public String getProjectId() {
+		return projectId;
 	}
 
-	public void setProject_id(String project_id) {
-		this.project_id = project_id;
+	public void setProjectId(String projectId) {
+		this.projectId = projectId;
 	}
 
 	public String getProject_name() {
@@ -205,6 +211,14 @@ public class t_project implements java.io.Serializable{
 
 	public void setT_datasource(List<t_datasource> t_datasource) {
 		this.t_datasource = t_datasource;
+	}
+
+	public List<t_datasource> getT_datasource2() {
+		return t_datasource2;
+	}
+
+	public void setT_datasource2(List<t_datasource> t_datasource2) {
+		this.t_datasource2 = t_datasource2;
 	}
 	
 	
