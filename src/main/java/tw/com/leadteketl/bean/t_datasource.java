@@ -76,8 +76,8 @@ public class t_datasource implements java.io.Serializable{
 	public String database_password;	
 	
 	@ApiModelProperty(value = "備註", required = true)
-	@Column(name="note",nullable = true,length=200)
-	public String Note;	
+	@Column(name="database_note",nullable = true,length=200)
+	public String database_note;	
 	
 	@ApiModelProperty(value = "狀態", required = true)
 	@Column(name="state",nullable = true,length=10)
@@ -183,12 +183,14 @@ public class t_datasource implements java.io.Serializable{
 		this.database_password = database_password;
 	}
 
-	public String getNote() {
-		return Note;
+
+
+	public String getDatabase_note() {
+		return database_note;
 	}
 
-	public void setNote(String note) {
-		Note = note;
+	public void setDatabase_note(String database_note) {
+		this.database_note = database_note;
 	}
 
 	public String getState() {
