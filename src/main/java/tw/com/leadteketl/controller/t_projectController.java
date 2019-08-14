@@ -87,7 +87,7 @@ public class t_projectController {
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(value = "/closeProject", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public String closeProject(@ApiParam(required = true, value = "專案表單") @RequestBody t_project t_project) {
-		System.out.println(t_project);
+		
 		String succse = null;
 //		if ("PM".equals(t_project.user)) {
 		t_project _old_t_project = t_projectService.findBySn(t_project.sn);

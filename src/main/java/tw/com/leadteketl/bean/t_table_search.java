@@ -36,8 +36,8 @@ public class t_table_search  implements java.io.Serializable{
 	public String project_id;
 	
 	@ApiModelProperty(value = "資料庫代碼", required = true)
-	@Column(name="database_id",nullable = false,unique=true,length=10)
-	public String database_id;
+	@Column(name="datasource_id",nullable = false,unique=true,length=10)
+	public String datasource_id;
 	
 	@ApiModelProperty(value = "表單代碼", required = true)
 	@Column(name="table_id",nullable = false,unique=true,length=10)
@@ -65,7 +65,7 @@ public class t_table_search  implements java.io.Serializable{
 	
 	@ManyToOne
 	@JoinColumns({@JoinColumn(name="t_table_search_project_id",referencedColumnName="project_id"),
-			      @JoinColumn(name="t_table_search_database_id",referencedColumnName="database_id"),
+			      @JoinColumn(name="t_table_search_datasource_id",referencedColumnName="datasource_id"),
 			      @JoinColumn(name="t_table_search_table_id",referencedColumnName="table_id")
 	})
 	public t_table_master t_table_master;

@@ -36,8 +36,8 @@ public class t_table_detail  implements java.io.Serializable{
 	public String project_id;
 	
 	@ApiModelProperty(value = "資料庫代碼", required = true)
-	@Column(name="database_id",nullable = false,unique=true,length=10)
-	public String database_id;
+	@Column(name="datasource_id",nullable = false,unique=true,length=10)
+	public String datasource_id;
 	
 	@ApiModelProperty(value = "表單代碼", required = true)
 	@Column(name="table_id",nullable = false,unique=true,length=10)
@@ -48,8 +48,8 @@ public class t_table_detail  implements java.io.Serializable{
 	public String table_detail_id;
 	
 	@ApiModelProperty(value = "串接資料庫代碼", required = true)
-	@Column(name="source_database_id",nullable = false,length=10)
-	public String source_database_id;
+	@Column(name="source_datasource_id",nullable = false,length=10)
+	public String source_datasource_id;
 	
 	@ApiModelProperty(value = "串接表單代碼", required = true)
 	@Column(name="source_table_id",nullable = false,length=10)
@@ -65,13 +65,13 @@ public class t_table_detail  implements java.io.Serializable{
 	
 	@ManyToOne
 	@JoinColumns({@JoinColumn(name="t_table_detail_project_id",referencedColumnName = "project_id"),
-				  @JoinColumn(name="t_table_detail_database_id" , referencedColumnName = "database_id"),
+				  @JoinColumn(name="t_table_detail_datasource_id" , referencedColumnName = "datasource_id"),
 				  @JoinColumn(name="t_table_detail_table_id",referencedColumnName = "table_id")
 	})
 	public t_table_master t_table_master;
 	
 	@ManyToOne
-	@JoinColumns({@JoinColumn(name="t_table_detail_source_database_id",referencedColumnName = "database_id"),
+	@JoinColumns({@JoinColumn(name="t_table_detail_source_datasource_id",referencedColumnName = "datasource_id"),
 				  @JoinColumn(name="t_table_detail_source_table_id" , referencedColumnName = "table_id"),
 				  @JoinColumn(name="t_table_detail_source_table_search_id",referencedColumnName = "table_search_id")
 	})
