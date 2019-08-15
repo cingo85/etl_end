@@ -71,8 +71,7 @@ public class t_datasourceController {
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(value = "/queryDataSourceByProjectId", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<t_datasource> queryDataSourceByProjectId(@ApiParam(required = true, value = "專案表單") @RequestBody t_datasource t_datasource){
-		System.out.println(t_datasource.getProjectId()
-				);
+		System.out.println(t_datasource.getProjectId());
 		return t_datasourceRepository.findByprojectId(t_datasource.projectId);
 	}
 

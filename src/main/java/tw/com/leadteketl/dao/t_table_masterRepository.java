@@ -17,6 +17,10 @@ public interface t_table_masterRepository extends JpaRepository<t_table_master,I
 	@Override
 	List<t_table_master> findAll();
 	
+	
+	List<t_table_master> findByProjectId(String projectId);
+
+	
 	@Override
 	t_table_master save(t_table_master s);
 	
