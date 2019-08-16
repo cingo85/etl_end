@@ -47,9 +47,13 @@ public class t_table_master implements java.io.Serializable{
 	@Column(name="table_id",nullable = false,length=100)
 	public String table_id;
 	
-	@ApiModelProperty(value = "表單名稱", required = true)
-	@Column(name="table_name",nullable = false,length=100)
-	public String table_name;
+	@ApiModelProperty(value = "表單名稱中文", required = true)
+	@Column(name="table_cname",nullable = false,length=100,unique=true)
+	public String table_cname;
+	
+	@ApiModelProperty(value = "表單名稱英文", required = true)
+	@Column(name="table_ename",nullable = false,length=100,unique=true)
+	public String table_ename;
 	
 	@ApiModelProperty(value = "表單Pkey序列", required = true)
 	@Column(name="table_pk",length=100)
@@ -81,17 +85,21 @@ public class t_table_master implements java.io.Serializable{
 	@Column(name="isConcatenation",length=1)
 	public boolean isConcatenation;
 	
-	@ApiModelProperty(value = "	資料描述")
+	@ApiModelProperty(value = "資料描述")
 	@Column(name="description",length=200)
 	public String description;
 	
-	@ApiModelProperty(value = "	未串接原因")
+	@ApiModelProperty(value = "未串接原因")
 	@Column(name="reason",length=200)
 	public String reason;
 	
 	@ApiModelProperty(value = "備註")
 	@Column(name="tMasterNote",length=10)
 	public String tMasterNote;
+	
+	@ApiModelProperty(value = "版本號")
+	@Column(name="version",length=200)
+	public String version;
 	
 	@ManyToOne
 	@JoinColumns({@JoinColumn(name="t_table_master_project_id",referencedColumnName = "project_id")
@@ -134,12 +142,22 @@ public class t_table_master implements java.io.Serializable{
 		this.table_id = table_id;
 	}
 
-	public String getTable_name() {
-		return table_name;
+	
+
+	public String getTable_cname() {
+		return table_cname;
 	}
 
-	public void setTable_name(String table_name) {
-		this.table_name = table_name;
+	public void setTable_cname(String table_cname) {
+		this.table_cname = table_cname;
+	}
+
+	public String getTable_ename() {
+		return table_ename;
+	}
+
+	public void setTable_ename(String table_ename) {
+		this.table_ename = table_ename;
 	}
 
 	public String getTable_pk() {
