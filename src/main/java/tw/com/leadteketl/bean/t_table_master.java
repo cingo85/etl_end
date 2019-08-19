@@ -52,7 +52,7 @@ public class t_table_master implements java.io.Serializable{
 	public String table_cname;
 	
 	@ApiModelProperty(value = "表單名稱英文", required = true)
-	@Column(name="table_ename",nullable = false,length=100,unique=true)
+	@Column(name="table_ename",length=100)
 	public String table_ename;
 	
 	@ApiModelProperty(value = "表單Pkey序列", required = true)
@@ -100,6 +100,21 @@ public class t_table_master implements java.io.Serializable{
 	@ApiModelProperty(value = "版本號")
 	@Column(name="version",length=200)
 	public String version;
+	
+	/*
+	 * 20190819
+	 * */
+	@ApiModelProperty(value = "資料源名稱", required = true)
+	@Column(name="datasource_name",length=255)
+	public String datasource_name;	
+	
+	@ApiModelProperty(value = "備註", required = true)
+	@Column(name="database_note",nullable = true,length=200)
+	public String database_note;
+	
+	@ApiModelProperty(value = "資料源類型", required = true)
+	@Column(name="datasource_type",nullable = false,length=100)
+	public String datasource_type;	
 	
 	@ManyToOne
 	@JoinColumns({@JoinColumn(name="t_table_master_project_id",referencedColumnName = "project_id")

@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import tw.com.leadteketl.bean.t_datasource;
 import tw.com.leadteketl.dao.t_datasourceRepository;
-import tw.com.leadteketl.dao.t_table_masterRepository;
+import tw.com.leadteketl.service.t_datasourceService;
 
 @Api(tags = "資料庫表單")
 @RestController
@@ -31,18 +31,15 @@ import tw.com.leadteketl.dao.t_table_masterRepository;
 @Controller
 public class t_datasourceController {
 
-	@Autowired
-	t_datasourceRepository t_datasourceRepository;
 
 	@Autowired
-	t_table_masterRepository t_table_masterRepository;
-	
+	t_datasourceService t_datasourceService;
 
 	@ApiOperation(value = "取得專案資料庫", notes = "列出所有專案資料庫")
 	@ResponseStatus(HttpStatus.OK)
 	@GetMapping(value = "/queryAlldatabase", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<t_datasource> getAllProject() {
-		return t_datasourceRepository.findAll();
+		return t_datasourceService.findAll();
 	}
 
 	@ApiOperation(value = "新建專案資料庫連線", notes = "新建專案資料庫連線")
@@ -52,7 +49,7 @@ public class t_datasourceController {
 	public t_datasource createNewDataBase(@ApiParam(required = true, value = "新建專案資料庫連線") @RequestBody t_datasource t_datasource)
 			throws SQLException {
 		
-			return t_datasourceRepository.save(t_datasource);
+			return t_datasourceService.save(t_datasource);
 	
 	}
 
@@ -63,7 +60,7 @@ public class t_datasourceController {
 	public t_datasource updateProject(@ApiParam(required = true, value = "專案表單") @RequestBody t_datasource t_datasource)
 			throws SQLException {
 
-		return t_datasourceRepository.save(t_datasource);
+		return t_datasourceService.save(t_datasource);
 	}
 	
 	@ApiOperation(value = "查詢專案資料庫", notes = "查詢專案資料庫")
@@ -72,36 +69,9 @@ public class t_datasourceController {
 	@PostMapping(value = "/queryDataSourceByProjectId", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<t_datasource> queryDataSourceByProjectId(@ApiParam(required = true, value = "專案表單") @RequestBody t_datasource t_datasource){
 		System.out.println(t_datasource.getProjectId());
-		return t_datasourceRepository.findByprojectId(t_datasource.projectId);
+		return t_datasourceService.findByprojectId(t_datasource.projectId);
 	}
 
-//	public boolean SQLSERVERconnTest(t_datasource t_datasource) throws SQLException {
-//		String url = null;
-//		Connection conn = null;
-//		if ("".equals(t_datasource.database_port)) {
-//			url = "jdbc:sqlserver://" + t_datasource.database_ip + ";";
-//		} else {
-//			url = "jdbc:sqlserver://" + t_datasource.database_ip + ":" + t_datasource.database_port + ";";
-//		}
-//		boolean conntest = false;
-//		try {
-//			conn = DriverManager.getConnection(url, t_datasource.database_user, t_datasource.database_password);
-//			if (conn != null) {
-//				conntest = true;
-//				List<String> table_name = t_datasourceRepository.findSqlserverAllDbSchema();
-//				table_name.forEach(s ->System.out.println(s));
-//			} else {
-//				conntest = false;
-//			}
-//			conn.close();
-//		} catch (Exception e) {
-//		} finally {
-//			if (conn != null) {
-//				conn.close();
-//			}
-//		}
-//
-//		return conntest;
-//	}
+
 
 }

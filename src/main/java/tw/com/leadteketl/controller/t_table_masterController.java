@@ -53,6 +53,23 @@ public class t_table_masterController {
 		return result;
 	}
 	
+	@ApiOperation(value = "使用專案編號比較DataSourceNTableMaster", notes = "列出專案資料表主表單")
+	@ResponseStatus(HttpStatus.OK)
+	@PostMapping(value = "/compareDataSourceNTableMasterProjectId",produces =MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<t_table_master> compareDataSourceNTableMasterProjectId(@ApiParam(required = true, value = "專案ID") @RequestBody t_table_master t_table_master){
+		String projectValue = t_table_master.getProjectId();
+		
+		List<t_table_master> result = t_table_masterService.compareDataSourceNTableMasterProjectId(projectValue);
+		
+		
+		
+		
+		
+		return result;
+	}
+	
+	
+	
 //	@ApiOperation(value = "新增資料表主表單", notes = "新增資料表主表單")
 //	@ApiResponses(value = {@ApiResponse(code=201,message = "新增資料表主表單成功")})
 //	@ResponseStatus(HttpStatus.CREATED)
@@ -70,6 +87,8 @@ public class t_table_masterController {
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(value = "/updatet_table_master", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public t_table_master updatet_table_master(@ApiParam(required = true, value = "更新代碼轉換") @RequestBody t_table_master t_table_master) {
+		
+		
 		
 		return t_table_masterService.save(t_table_master);
 //		return null;
