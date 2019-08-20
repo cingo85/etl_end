@@ -80,7 +80,7 @@ public class t_datasource implements java.io.Serializable{
 	public String database_note;	
 	
 	@ApiModelProperty(value = "狀態", required = true)
-	@Column(name="state",nullable = true,length=10)
+	@Column(name="state",nullable = true,length=40)
 	public String state;
 	
 	@ApiModelProperty(value = "資料根目錄", required = true)

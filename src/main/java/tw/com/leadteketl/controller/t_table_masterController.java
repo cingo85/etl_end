@@ -61,10 +61,6 @@ public class t_table_masterController {
 		
 		List<t_table_master> result = t_table_masterService.compareDataSourceNTableMasterProjectId(projectValue);
 		
-		
-		
-		
-		
 		return result;
 	}
 	

@@ -42,6 +42,7 @@ public class t_table_masterService {
 		for(t_datasource item:datasourceResult) {
 			if(("").equals(item.state) && item.is_input_datasource) {
 				t_table_master temp = new t_table_master();
+				temp.SN = item.sn;
 				temp.projectId = item.projectId;
 				temp.datasource_id = item.datasource_id;
 				temp.datasource_type = item.datasource_type;
@@ -53,12 +54,10 @@ public class t_table_masterService {
 		}
 		
 		for(t_table_master item:tableResult) {
-			if("".equals(item.state)) {
+			if("CsvImport".equals(item.state)) {
 				result.add(item);
 			}
 		}
-		
-		
 		
 		return result;	
 		}

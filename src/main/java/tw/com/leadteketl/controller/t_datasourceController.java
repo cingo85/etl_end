@@ -59,8 +59,16 @@ public class t_datasourceController {
 	@PostMapping(value = "/updateDataBase", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public t_datasource updateProject(@ApiParam(required = true, value = "專案表單") @RequestBody t_datasource t_datasource)
 			throws SQLException {
-
 		return t_datasourceService.save(t_datasource);
+	}
+	
+	@ApiOperation(value = "更新專案資料庫狀態", notes = "更新專案資料庫連線")
+	@ApiResponses(value = { @ApiResponse(code = 201, message = "更新專案資料庫連線成功") })
+	@ResponseStatus(HttpStatus.OK)
+	@PostMapping(value = "/updateDataBaseState", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public t_datasource updateProjectState(@ApiParam(required = true, value = "專案表單") @RequestBody t_datasource t_datasource)
+			throws SQLException {
+		return t_datasourceService.saveState(t_datasource);
 	}
 	
 	@ApiOperation(value = "查詢專案資料庫", notes = "查詢專案資料庫")

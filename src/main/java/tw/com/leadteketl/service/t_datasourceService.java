@@ -19,6 +19,19 @@ public class t_datasourceService {
 		
 		return t_datasourceRepository.save(t_datasource);
 	}
+	
+	public t_datasource saveState(t_datasource t_datasource) {
+		
+		List<t_datasource> temp = t_datasourceRepository.findByprojectId(t_datasource.getProjectId());
+		
+		for(t_datasource item : temp) {
+			
+			item.setState("TableMasterImport");
+			t_datasourceRepository.save(item);
+		}
+		
+		return null;
+	}
 
 	public List<t_datasource> findByprojectId(String projectId) {
 		// TODO Auto-generated method stub

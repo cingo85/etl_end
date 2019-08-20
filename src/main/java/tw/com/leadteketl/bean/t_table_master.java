@@ -48,7 +48,7 @@ public class t_table_master implements java.io.Serializable{
 	public String table_id;
 	
 	@ApiModelProperty(value = "表單名稱中文", required = true)
-	@Column(name="table_cname",nullable = false,length=100,unique=true)
+	@Column(name="table_cname",length=100)
 	public String table_cname;
 	
 	@ApiModelProperty(value = "表單名稱英文", required = true)
@@ -72,7 +72,7 @@ public class t_table_master implements java.io.Serializable{
 	public Integer table_data_quantity;
 	
 	@ApiModelProperty(value = "狀態", required = true)
-	@Column(name="state",nullable = false,length=10)
+	@Column(name="state",nullable = false,length=40)
 	public String state;
 	
 	/*
@@ -113,7 +113,7 @@ public class t_table_master implements java.io.Serializable{
 	public String database_note;
 	
 	@ApiModelProperty(value = "資料源類型", required = true)
-	@Column(name="datasource_type",nullable = false,length=100)
+	@Column(name="datasource_type",nullable = true,length=100)
 	public String datasource_type;	
 	
 	@ManyToOne
