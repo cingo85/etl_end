@@ -80,8 +80,8 @@ public class t_datasource implements java.io.Serializable{
 	public String database_note;	
 	
 	@ApiModelProperty(value = "狀態", required = true)
-	@Column(name="state",nullable = true,length=40)
-	public String state;
+	@Column(name="DataBaseState",nullable = true,length=40)
+	public String DataBaseState;
 	
 	@ApiModelProperty(value = "資料根目錄", required = true)
 	@Column(name="data_root",nullable = true,length=255)
@@ -193,12 +193,13 @@ public class t_datasource implements java.io.Serializable{
 		this.database_note = database_note;
 	}
 
-	public String getState() {
-		return state;
+
+	public String getDataBaseState() {
+		return DataBaseState;
 	}
 
-	public void setState(String state) {
-		this.state = state;
+	public void setDataBaseState(String dataBaseState) {
+		DataBaseState = dataBaseState;
 	}
 
 	public String getData_root() {

@@ -1,5 +1,8 @@
 package tw.com.leadteketl.bean;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,13 +11,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
 
 @Entity
 @Table(
@@ -72,8 +74,8 @@ public class t_table_master implements java.io.Serializable{
 	public Integer table_data_quantity;
 	
 	@ApiModelProperty(value = "狀態", required = true)
-	@Column(name="state",nullable = false,length=40)
-	public String state;
+	@Column(name="TableMasterState",nullable = false,length=40)
+	public String TableMasterState;
 	
 	/*
 	 * 
@@ -120,6 +122,10 @@ public class t_table_master implements java.io.Serializable{
 	@JoinColumns({@JoinColumn(name="t_table_master_project_id",referencedColumnName = "project_id")
 	,@JoinColumn(name="t_table_master_datasource_id",referencedColumnName = "datasource_id")})
 	public t_datasource t_database;
+	
+	@OneToMany(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "t_table_master_table_id")
+	public List<t_column_master> t_column_master;
 
 	public Integer getSN() {
 		return SN;
@@ -128,8 +134,6 @@ public class t_table_master implements java.io.Serializable{
 	public void setSN(Integer sN) {
 		SN = sN;
 	}
-
-	
 
 	public String getProjectId() {
 		return projectId;
@@ -207,12 +211,21 @@ public class t_table_master implements java.io.Serializable{
 		this.table_data_quantity = table_data_quantity;
 	}
 
-	public String getState() {
-		return state;
+
+	public String getTableMasterState() {
+		return TableMasterState;
 	}
 
-	public void setState(String state) {
-		this.state = state;
+	public void setTableMasterState(String tableMasterState) {
+		TableMasterState = tableMasterState;
+	}
+
+	public List<t_column_master> getT_column_master() {
+		return t_column_master;
+	}
+
+	public void setT_column_master(List<t_column_master> t_column_master) {
+		this.t_column_master = t_column_master;
 	}
 
 	public boolean isConcatenation() {

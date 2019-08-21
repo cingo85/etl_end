@@ -16,7 +16,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Entity
-@Table(name="t_column_master",uniqueConstraints= {@UniqueConstraint(columnNames = {"project_id","datasource_id","table_id","column_id"})})
+@Table(name="t_column_master")
 @ApiModel(description= "欄位表單")
 public class t_column_master implements java.io.Serializable{
 
@@ -29,15 +29,6 @@ public class t_column_master implements java.io.Serializable{
 	@ApiModelProperty(value = "自增序號", required = true)
 	@Column(name="SN",updatable = false,nullable = false,length=5)
 	public Integer sn;	
-	
-	
-	@ApiModelProperty(value = "專案代碼", required = true)
-	@Column(name="project_id",nullable = false,length=10)
-	public String projectId;	
-	
-	@ApiModelProperty(value = "資料庫代碼", required = true)
-	@Column(name="datasource_id",nullable = false,length=10)
-	public String datasource_id;
 	
 	@ApiModelProperty(value = "表單代碼", required = true)
 	@Column(name="table_id",nullable = false,length=10)
@@ -76,18 +67,15 @@ public class t_column_master implements java.io.Serializable{
 	public boolean is_datamodel_attribute;
 	
 	@ApiModelProperty(value = "狀態", required = true)
-	@Column(name="state",nullable = false,length=40)
-	public String state;
+	@Column(name="ColumnMasterState",nullable = false,length=40)
+	public String ColumnMasterState;
 	
 	@ApiModelProperty(value = "欄位長度", required = true)
 	@Column(name="column_length",length=100)
 	public Integer column_length;
 	
 	@ManyToOne
-	@JoinColumns({@JoinColumn(name="t_column_master_project_id",referencedColumnName = "project_id"),
-				  @JoinColumn(name="t_column_master_datasource_id" , referencedColumnName = "datasource_id"),
-				  @JoinColumn(name="t_column_master_table_id",referencedColumnName = "table_id")
-	})
+	@JoinColumn(name="t_column_master_table_id",referencedColumnName = "table_id")
 	public t_table_master t_table_master;
 		
 }

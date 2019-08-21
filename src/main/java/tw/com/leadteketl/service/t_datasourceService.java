@@ -26,7 +26,7 @@ public class t_datasourceService {
 		
 		for(t_datasource item : temp) {
 			
-			item.setState("TableMasterImport");
+			item.setDataBaseState("TableMasterImport");
 			t_datasourceRepository.save(item);
 		}
 		

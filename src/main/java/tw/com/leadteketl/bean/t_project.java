@@ -27,7 +27,6 @@ import lombok.Data;
 @Entity
 @Table(name="t_project")
 @ApiModel(description= "專案表單")
-//@Data
 public class t_project implements java.io.Serializable{
 
 	/**
@@ -71,8 +70,8 @@ public class t_project implements java.io.Serializable{
 	public boolean is_close;
 
 	@ApiModelProperty(value = "狀態", required = true)
-	@Column(name="state",nullable = false,length=10)
-	public String state;
+	@Column(name="ProjectState",nullable = true,length=10)
+	public String ProjectState;
 	
 	@ApiModelProperty(value = "客戶名稱")
 	@Column(name="customer_name",length=255)
@@ -165,12 +164,14 @@ public class t_project implements java.io.Serializable{
 		this.is_close = is_close;
 	}
 
-	public String getState() {
-		return state;
+	
+
+	public String getProjectState() {
+		return ProjectState;
 	}
 
-	public void setState(String state) {
-		this.state = state;
+	public void setProjectState(String projectState) {
+		ProjectState = projectState;
 	}
 
 	public String getCustomer_name() {

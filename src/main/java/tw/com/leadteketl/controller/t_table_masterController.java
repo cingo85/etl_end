@@ -46,7 +46,6 @@ public class t_table_masterController {
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(value = "/querytableMasterByProjectId",produces =MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<t_table_master> findByProjectId(@ApiParam(required = true, value = "專案ID") @RequestBody t_table_master t_table_master){
-		System.out.println("得到參數:"+t_table_master.getProjectId());
 		String projectValue = t_table_master.getProjectId();
 		
 		List<t_table_master> result = t_table_masterService.findByProjectId(projectValue);
