@@ -254,6 +254,39 @@ public class t_table_master implements java.io.Serializable{
 	public void setT_database(t_datasource t_database) {
 		this.t_database = t_database;
 	}
+
+	public String getVersion() {
+		return version;
+	}
+
+	public void setVersion(String version) {
+		this.version = version;
+	}
+
+	public String getDatasource_name() {
+		return datasource_name;
+	}
+
+	public void setDatasource_name(String datasource_name) {
+		this.datasource_name = datasource_name;
+	}
+
+	public String getDatabase_note() {
+		return database_note;
+	}
+
+	public void setDatabase_note(String database_note) {
+		this.database_note = database_note;
+	}
+
+	public String getDatasource_type() {
+		return datasource_type;
+	}
+
+	public void setDatasource_type(String datasource_type) {
+		this.datasource_type = datasource_type;
+	}
+	
 	
 	
 

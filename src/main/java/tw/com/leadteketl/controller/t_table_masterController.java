@@ -84,7 +84,7 @@ public class t_table_masterController {
 	@PostMapping(value = "/updatet_table_master", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public t_table_master updatet_table_master(@ApiParam(required = true, value = "更新代碼轉換") @RequestBody t_table_master t_table_master) {
 		
-		
+		System.out.println("進入更新");
 		
 		return t_table_masterService.save(t_table_master);
 //		return null;

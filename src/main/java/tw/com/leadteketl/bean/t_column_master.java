@@ -9,15 +9,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Entity
-@Table(name="t_column_master")
+@Table(name="t_column_master",uniqueConstraints= {@UniqueConstraint(columnNames = {"project_id","datasource_id","table_id","column_id"})})
 @ApiModel(description= "欄位表單")
-@Data
 public class t_column_master implements java.io.Serializable{
 
 	/**
@@ -32,15 +32,15 @@ public class t_column_master implements java.io.Serializable{
 	
 	
 	@ApiModelProperty(value = "專案代碼", required = true)
-	@Column(name="project_id",nullable = false,unique=true,length=10)
-	public String project_id;	
+	@Column(name="project_id",nullable = false,length=10)
+	public String projectId;	
 	
 	@ApiModelProperty(value = "資料庫代碼", required = true)
-	@Column(name="datasource_id",nullable = false,unique=true,length=10)
+	@Column(name="datasource_id",nullable = false,length=10)
 	public String datasource_id;
 	
 	@ApiModelProperty(value = "表單代碼", required = true)
-	@Column(name="table_id",nullable = false,unique=true,length=10)
+	@Column(name="table_id",nullable = false,length=10)
 	public String table_id;	
 	
 	@ApiModelProperty(value = "欄位代碼", required = true)
@@ -76,7 +76,7 @@ public class t_column_master implements java.io.Serializable{
 	public boolean is_datamodel_attribute;
 	
 	@ApiModelProperty(value = "狀態", required = true)
-	@Column(name="state",nullable = false,length=10)
+	@Column(name="state",nullable = false,length=40)
 	public String state;
 	
 	@ApiModelProperty(value = "欄位長度", required = true)
