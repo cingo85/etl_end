@@ -14,9 +14,9 @@ spring:
       force: true
   datasource:
      driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-     url: jdbc:sqlserver://172.16.2.82:1433;Database=Project_Data
-     username: leadtek
-     password: leadtek
+     url: jdbc:sqlserver://127.0.0.1:1433;Database=Project_Data
+     username: sa
+     password: j98390941
   jpa:
     show-sql: true
     database: SQL_SERVER 
