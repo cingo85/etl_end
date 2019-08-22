@@ -27,3 +27,6 @@ hs_err_pid*
 *.yml
 *.yml
 *.yml
+bin/main/application.yml
+*.yml
+src/main/resources/application.yml

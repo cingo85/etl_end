@@ -47,8 +47,17 @@ public class t_table_masterController {
 	@PostMapping(value = "/querytableMasterByProjectId",produces =MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<t_table_master> findByProjectId(@ApiParam(required = true, value = "專案ID") @RequestBody t_table_master t_table_master){
 		String projectValue = t_table_master.getProjectId();
-		
 		List<t_table_master> result = t_table_masterService.findByProjectId(projectValue);
+		return result;
+	}
+	
+	@ApiOperation(value = "使用專案編號取得資料表主表單", notes = "列出專案資料表主表單")
+	@ResponseStatus(HttpStatus.OK)
+	@PostMapping(value = "/querytableMasterByTableId",produces =MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<t_table_master> findByTableId(@ApiParam(required = true, value = "專案ID") @RequestParam String TableId){
+		
+		System.out.println(TableId);
+		List<t_table_master> result = t_table_masterService.findByProjectId(TableId);
 		return result;
 	}
 	
@@ -82,9 +91,6 @@ public class t_table_masterController {
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(value = "/updatet_table_master", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public t_table_master updatet_table_master(@ApiParam(required = true, value = "更新代碼轉換") @RequestBody t_table_master t_table_master) {
-		
-		System.out.println("進入更新");
-		
 		return t_table_masterService.save(t_table_master);
 //		return null;
 	}
