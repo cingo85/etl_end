@@ -47,7 +47,7 @@ public class t_table_master implements java.io.Serializable{
 	
 	@ApiModelProperty(value = "表單代碼", required = true)
 	@Column(name="table_id",nullable = false,length=100)
-	public String table_id;
+	public String tableId;
 	
 	@ApiModelProperty(value = "表單名稱中文", required = true)
 	@Column(name="table_cname",length=100)
@@ -153,15 +153,14 @@ public class t_table_master implements java.io.Serializable{
 		this.datasource_id = datasource_id;
 	}
 
-	public String getTable_id() {
-		return table_id;
+
+	public String getTableId() {
+		return tableId;
 	}
 
-	public void setTable_id(String table_id) {
-		this.table_id = table_id;
+	public void setTableId(String tableId) {
+		this.tableId = tableId;
 	}
-
-	
 
 	public String getTable_cname() {
 		return table_cname;

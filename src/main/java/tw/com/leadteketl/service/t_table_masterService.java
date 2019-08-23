@@ -24,6 +24,10 @@ public class t_table_masterService {
 		return t_table_masterRepository.findByProjectId(projectId);
 	}
 	
+	public List<t_table_master> findByTableId(String TableId) {
+		return t_table_masterRepository.findByTableId(TableId);
+	}
+	
 	public t_table_master save(t_table_master s) {
 		return t_table_masterRepository.save(s);
 	}

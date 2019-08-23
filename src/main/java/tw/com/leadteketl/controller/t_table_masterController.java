@@ -2,6 +2,7 @@ package tw.com.leadteketl.controller;
 
 import java.util.List;
 
+import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -46,18 +47,19 @@ public class t_table_masterController {
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(value = "/querytableMasterByProjectId",produces =MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<t_table_master> findByProjectId(@ApiParam(required = true, value = "專案ID") @RequestBody t_table_master t_table_master){
+		
 		String projectValue = t_table_master.getProjectId();
 		List<t_table_master> result = t_table_masterService.findByProjectId(projectValue);
 		return result;
 	}
 	
-	@ApiOperation(value = "使用專案編號取得資料表主表單", notes = "列出專案資料表主表單")
+	@ApiOperation(value = "使用表單編號取得資料表主表單", notes = "列出專案資料表主表單")
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(value = "/querytableMasterByTableId",produces =MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public List<t_table_master> findByTableId(@ApiParam(required = true, value = "專案ID") @RequestParam String TableId){
-		
-		System.out.println(TableId);
-		List<t_table_master> result = t_table_masterService.findByProjectId(TableId);
+	public List<t_table_master> findByTableId(@ApiParam(required = true, value = "專案ID") @RequestParam(value = "tableId") String tableId){
+		System.out.println("inner here");
+		System.out.println(tableId);
+		List<t_table_master> result = t_table_masterService.findByTableId(tableId);
 		return result;
 	}
 	
