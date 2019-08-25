@@ -57,8 +57,6 @@ public class t_table_masterController {
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(value = "/querytableMasterByTableId",produces =MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<t_table_master> findByTableId(@ApiParam(required = true, value = "專案ID") @RequestParam(value = "tableId") String tableId){
-		System.out.println("inner here");
-		System.out.println(tableId);
 		List<t_table_master> result = t_table_masterService.findByTableId(tableId);
 		return result;
 	}
@@ -71,6 +69,15 @@ public class t_table_masterController {
 		
 		List<t_table_master> result = t_table_masterService.compareDataSourceNTableMasterProjectId(projectValue);
 		
+		return result;
+	}
+	
+	@ApiOperation(value = "使用資料來源編號取得資料表主表單", notes = "列出專案資料表主表單")
+	@ResponseStatus(HttpStatus.OK)
+	@PostMapping(value = "/querytableMasterByDataSourceId",produces =MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<t_table_master> findByDataSourceId(@ApiParam(required = true, value = "資料來源ID") @RequestParam(value = "DataSourceId") String DataSourceId){
+		System.out.println(DataSourceId.toString());
+		List<t_table_master> result = t_table_masterService.findByDatasourceId(DataSourceId);
 		return result;
 	}
 	

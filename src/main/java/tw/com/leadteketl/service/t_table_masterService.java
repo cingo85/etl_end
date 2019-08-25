@@ -28,6 +28,10 @@ public class t_table_masterService {
 		return t_table_masterRepository.findByTableId(TableId);
 	}
 	
+	public List<t_table_master> findByDatasourceId(String TableId) {
+		return t_table_masterRepository.findByDatasourceId(TableId);
+	}
+	
 	public t_table_master save(t_table_master s) {
 		return t_table_masterRepository.save(s);
 	}
@@ -48,7 +52,7 @@ public class t_table_masterService {
 				t_table_master temp = new t_table_master();
 				temp.SN = item.sn;
 				temp.projectId = item.projectId;
-				temp.datasource_id = item.datasource_id;
+				temp.datasourceId = item.datasource_id;
 				temp.datasource_type = item.datasource_type;
 				temp.database_note = item.database_note;
 				temp.TableMasterState =item.DataBaseState;
