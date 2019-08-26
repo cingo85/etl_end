@@ -52,7 +52,7 @@ public class t_table_masterService {
 				t_table_master temp = new t_table_master();
 				temp.SN = item.sn;
 				temp.projectId = item.projectId;
-				temp.datasourceId = item.datasource_id;
+				temp.datasourceId = item.datasourceId;
 				temp.datasource_type = item.datasource_type;
 				temp.database_note = item.database_note;
 				temp.TableMasterState =item.DataBaseState;

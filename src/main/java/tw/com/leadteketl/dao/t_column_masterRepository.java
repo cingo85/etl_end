@@ -21,4 +21,6 @@ public interface t_column_masterRepository extends JpaRepository<t_column_master
 	@Override
 	@RestResource(exported = false)
 	void delete(t_column_master t);
+
+	List<t_column_master> findByTableId(String tableId);
 }

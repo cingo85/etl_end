@@ -45,8 +45,8 @@ public class t_table_master implements java.io.Serializable{
 	@Column(name="datasource_id",nullable = false,length=100)
 	public String datasourceId;
 	
-	@ApiModelProperty(value = "表單代碼", required = true)
-	@Column(name="table_id",nullable = false,length=100)
+	@ApiModelProperty(value = "表單代碼", required = false)
+	@Column(name="table_id",length=100)
 	public String tableId;
 	
 	@ApiModelProperty(value = "表單名稱中文", required = true)

@@ -32,7 +32,7 @@ public class t_column_master implements java.io.Serializable{
 	
 	@ApiModelProperty(value = "表單代碼", required = true)
 	@Column(name="table_id",nullable = false,length=40)
-	public String table_id;	
+	public String tableId;	
 	
 	@ApiModelProperty(value = "欄位代碼", required = true)
 	@Column(name="column_id",nullable = false,unique=true,length=40)
