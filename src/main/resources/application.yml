@@ -25,7 +25,7 @@ spring:
     show-sql: true
     database: SQL_SERVER 
     hibernate:      
-        ddl-auto: create  
+        ddl-auto: update  
     properties.hibernate.dialect: org.hibernate.dialect.SQLServer2008Dialect
     database-platform: org.hibernate.dialect.SQLServer2008Dialect
   
