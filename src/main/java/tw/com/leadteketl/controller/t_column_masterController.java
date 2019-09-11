@@ -64,6 +64,11 @@ public class t_column_masterController {
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(value = "/queryColumnMasterByTableId", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<t_column_master> queryColumnMasterByTableId(@ApiParam(required = true, value = "更新欄位") @RequestParam(value = "tableId") String tableId) {
+		System.out.println(tableId);
+		List<t_column_master> xxx = t_column_masterService.findByTableId(tableId);
+		for(t_column_master item :xxx) {
+			System.out.println(item);
+		}
 		return t_column_masterService.findByTableId(tableId);
 	}
 	

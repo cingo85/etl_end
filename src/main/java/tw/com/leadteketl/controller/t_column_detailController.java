@@ -51,7 +51,7 @@ public class t_column_detailController {
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(value = "/updateColumnDetail", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public t_column_detail updateColumnDetail(@ApiParam(required = true, value = "更新欄位細項") @RequestBody t_column_detail t_column_detail) {
-//		t_database.
+
 		return t_column_detailRepository.save(t_column_detail);
 	}
 }
