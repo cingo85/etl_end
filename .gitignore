@@ -32,3 +32,6 @@ bin/main/application.yml
 src/main/resources/application.yml
 src/main/resources/application.yml
 bin/main/application.yml
+.idea/gradle.xml
+.idea/misc.xml
+.idea/vcs.xml
