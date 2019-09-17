@@ -1,5 +1,6 @@
 package tw.com.leadteketl.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -48,34 +49,38 @@ public class t_table_master implements java.io.Serializable{
 	@ApiModelProperty(value = "表單代碼", required = false)
 	@Column(name="table_id",length=100)
 	public String tableId;
+
+	@ApiModelProperty(value = "表單名稱", required = true)
+	@Column(name="table_name",length=100)
+	public String tableName;
 	
 	@ApiModelProperty(value = "表單名稱中文", required = true)
 	@Column(name="table_cname",length=100)
-	public String table_cname;
+	public String tableCname;
 	
 	@ApiModelProperty(value = "表單名稱英文", required = true)
 	@Column(name="table_ename",length=100)
-	public String table_ename;
+	public String tableEname;
 	
 	@ApiModelProperty(value = "表單Pkey序列", required = true)
 	@Column(name="table_pk",length=100)
-	public String table_pk;
+	public String tablePk;
 	
 	@ApiModelProperty(value = "表單Pkey名稱", required = true)
 	@Column(name="table_pk_name",length=100)
-	public String table_pk_name;
+	public String tablePkName;
 	
 	@ApiModelProperty(value = "表單欄位數量", required = true)
 	@Column(name="table_column_quantity",nullable = true,length=100)
-	public Integer table_column_quantity;
+	public Integer tableColumnQuantity;
 	
 	@ApiModelProperty(value = "表單資料數量", required = true)
 	@Column(name="table_data_quantity",nullable = true,length=100)
-	public Integer table_data_quantity;
+	public Integer tableDataQuantity;
 	
 	@ApiModelProperty(value = "狀態", required = true)
-	@Column(name="TableMasterState",nullable = false,length=40)
-	public String TableMasterState;
+	@Column(name="table_master_state",nullable = false,length=40)
+	public String tableMasterState;
 	
 	/*
 	 * 
@@ -84,7 +89,7 @@ public class t_table_master implements java.io.Serializable{
 	 * */
 	
 	@ApiModelProperty(value = "是否串接")
-	@Column(name="isConcatenation",length=1)
+	@Column(name="is_Concatenation",length=1)
 	public boolean isConcatenation;
 	
 	@ApiModelProperty(value = "資料描述")
@@ -96,7 +101,7 @@ public class t_table_master implements java.io.Serializable{
 	public String reason;
 	
 	@ApiModelProperty(value = "備註")
-	@Column(name="tMasterNote",length=10)
+	@Column(name="t_master_note",length=10)
 	public String tMasterNote;
 	
 	@ApiModelProperty(value = "版本號")
@@ -108,15 +113,19 @@ public class t_table_master implements java.io.Serializable{
 	 * */
 	@ApiModelProperty(value = "資料源名稱", required = true)
 	@Column(name="datasource_name",length=255)
-	public String datasource_name;	
+	public String datasourceName;
 	
 	@ApiModelProperty(value = "備註", required = true)
 	@Column(name="database_note",nullable = true,length=200)
-	public String database_note;
+	public String databaseNote;
 	
 	@ApiModelProperty(value = "資料源類型", required = true)
 	@Column(name="datasource_type",nullable = true,length=100)
-	public String datasource_type;	
+	public String datasourceType;
+
+	@ApiModelProperty(value = "表頭順序")
+	@Column(name="headerSeq",nullable = true,length=100)
+	public ArrayList<String> headerSeq;
 	
 	@ManyToOne
 	@JoinColumns({@JoinColumn(name="t_table_master_project_id",referencedColumnName = "project_id")
@@ -131,8 +140,8 @@ public class t_table_master implements java.io.Serializable{
 		return SN;
 	}
 
-	public void setSN(Integer sN) {
-		SN = sN;
+	public void setSN(Integer SN) {
+		this.SN = SN;
 	}
 
 	public String getProjectId() {
@@ -142,11 +151,6 @@ public class t_table_master implements java.io.Serializable{
 	public void setProjectId(String projectId) {
 		this.projectId = projectId;
 	}
-
-	
-
-
-
 
 	public String getDatasourceId() {
 		return datasourceId;
@@ -164,77 +168,76 @@ public class t_table_master implements java.io.Serializable{
 		this.tableId = tableId;
 	}
 
-	public String getTable_cname() {
-		return table_cname;
+	public String getTableName() {
+		return tableName;
 	}
 
-	public void setTable_cname(String table_cname) {
-		this.table_cname = table_cname;
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
 	}
 
-	public String getTable_ename() {
-		return table_ename;
+	public String getTableCname() {
+		return tableCname;
 	}
 
-	public void setTable_ename(String table_ename) {
-		this.table_ename = table_ename;
+	public void setTableCname(String tableCname) {
+		this.tableCname = tableCname;
 	}
 
-	public String getTable_pk() {
-		return table_pk;
+	public String getTableEname() {
+		return tableEname;
 	}
 
-	public void setTable_pk(String table_pk) {
-		this.table_pk = table_pk;
+	public void setTableEname(String tableEname) {
+		this.tableEname = tableEname;
 	}
 
-	public String getTable_pk_name() {
-		return table_pk_name;
+	public String getTablePk() {
+		return tablePk;
 	}
 
-	public void setTable_pk_name(String table_pk_name) {
-		this.table_pk_name = table_pk_name;
+	public void setTablePk(String tablePk) {
+		this.tablePk = tablePk;
 	}
 
-	public Integer getTable_column_quantity() {
-		return table_column_quantity;
+	public String getTablePkName() {
+		return tablePkName;
 	}
 
-	public void setTable_column_quantity(Integer table_column_quantity) {
-		this.table_column_quantity = table_column_quantity;
+	public void setTablePkName(String tablePkName) {
+		this.tablePkName = tablePkName;
 	}
 
-	public Integer getTable_data_quantity() {
-		return table_data_quantity;
+	public Integer getTableColumnQuantity() {
+		return tableColumnQuantity;
 	}
 
-	public void setTable_data_quantity(Integer table_data_quantity) {
-		this.table_data_quantity = table_data_quantity;
+	public void setTableColumnQuantity(Integer tableColumnQuantity) {
+		this.tableColumnQuantity = tableColumnQuantity;
 	}
 
+	public Integer getTableDataQuantity() {
+		return tableDataQuantity;
+	}
+
+	public void setTableDataQuantity(Integer tableDataQuantity) {
+		this.tableDataQuantity = tableDataQuantity;
+	}
 
 	public String getTableMasterState() {
-		return TableMasterState;
+		return tableMasterState;
 	}
 
 	public void setTableMasterState(String tableMasterState) {
-		TableMasterState = tableMasterState;
-	}
-
-	public List<t_column_master> getT_column_master() {
-		return t_column_master;
-	}
-
-	public void setT_column_master(List<t_column_master> t_column_master) {
-		this.t_column_master = t_column_master;
+		this.tableMasterState = tableMasterState;
 	}
 
 	public boolean isConcatenation() {
 		return isConcatenation;
 	}
 
-	public void setConcatenation(boolean isConcatenation) {
-		this.isConcatenation = isConcatenation;
+	public void setConcatenation(boolean concatenation) {
+		isConcatenation = concatenation;
 	}
 
 	public String getDescription() {
@@ -261,14 +264,6 @@ public class t_table_master implements java.io.Serializable{
 		this.tMasterNote = tMasterNote;
 	}
 
-	public t_datasource getT_database() {
-		return t_database;
-	}
-
-	public void setT_database(t_datasource t_database) {
-		this.t_database = t_database;
-	}
-
 	public String getVersion() {
 		return version;
 	}
@@ -277,31 +272,53 @@ public class t_table_master implements java.io.Serializable{
 		this.version = version;
 	}
 
-	public String getDatasource_name() {
-		return datasource_name;
+	public String getDatasourceName() {
+		return datasourceName;
 	}
 
-	public void setDatasource_name(String datasource_name) {
-		this.datasource_name = datasource_name;
+	public void setDatasourceName(String datasourceName) {
+		this.datasourceName = datasourceName;
 	}
 
-	public String getDatabase_note() {
-		return database_note;
+	public String getDatabaseNote() {
+		return databaseNote;
 	}
 
-	public void setDatabase_note(String database_note) {
-		this.database_note = database_note;
+	public void setDatabaseNote(String databaseNote) {
+		this.databaseNote = databaseNote;
 	}
 
-	public String getDatasource_type() {
-		return datasource_type;
+	public String getDatasourceType() {
+		return datasourceType;
 	}
 
-	public void setDatasource_type(String datasource_type) {
-		this.datasource_type = datasource_type;
+	public void setDatasourceType(String datasourceType) {
+		this.datasourceType = datasourceType;
 	}
-	
-	
-	
+
+	public ArrayList<String> getHeaderSeq() {
+		return headerSeq;
+	}
+
+	public void setHeaderSeq(ArrayList<String> headerSeq) {
+		this.headerSeq = headerSeq;
+	}
+
+	public t_datasource getT_database() {
+		return t_database;
+	}
+
+	public void setT_database(t_datasource t_database) {
+		this.t_database = t_database;
+	}
+
+	public List<tw.com.leadteketl.bean.t_column_master> getT_column_master() {
+		return t_column_master;
+	}
+
+	public void setT_column_master(List<tw.com.leadteketl.bean.t_column_master> t_column_master) {
+		this.t_column_master = t_column_master;
+	}
+
 
 }

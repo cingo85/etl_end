@@ -25,7 +25,6 @@ public class t_datasourceService {
 		List<t_datasource> temp = t_datasourceRepository.findByprojectId(t_datasource.getProjectId());
 		
 		for(t_datasource item : temp) {
-			
 			item.setDataBaseState("TableMasterImport");
 			t_datasourceRepository.save(item);
 		}

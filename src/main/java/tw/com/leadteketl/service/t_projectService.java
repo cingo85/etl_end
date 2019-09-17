@@ -15,47 +15,44 @@ import tw.com.leadteketl.dao.t_projectRepository;
 
 @Service
 public class t_projectService {
-	
-	
-	@Autowired
-	t_projectRepository t_projectRepository;
-	
-	@Autowired
-	t_datasourceRepository t_datasourceRepository;
-	
-	public String saveNewProject(t_project t_project) {
-		
-		if(t_project.t_datasource2.size()>0) {
-			t_project.t_datasource.addAll(t_project.t_datasource2);
-		}
-		
-		SimpleDateFormat nowdate = new java.text.SimpleDateFormat("yyyy-MM-dd"); 
-	
+
+
+    @Autowired
+    t_projectRepository t_projectRepository;
+
+    @Autowired
+    t_datasourceRepository t_datasourceRepository;
+
+    public String saveNewProject(t_project t_project) {
+
+        if (t_project.t_datasource2.size() > 0) {
+            t_project.t_datasource.addAll(t_project.t_datasource2);
+        }
+
+        SimpleDateFormat nowdate = new java.text.SimpleDateFormat("yyyy-MM-dd");
+
 //		t_project.setProject_id(UUID.randomUUID().toString());
-		t_project.setProject_create_date(nowdate.get2DigitYearStart());
-		t_project.setProject_last_modify_date(nowdate.get2DigitYearStart());
+        t_project.setProjectCreateDate(nowdate.get2DigitYearStart());
+        t_project.setProjectLastModifyDate(nowdate.get2DigitYearStart());
 
-			 
-		
-		
-		
-		t_projectRepository.save(t_project);
-		
-		return "Ok";
-	}
 
-	public List<t_project> findAll() {
-		// TODO Auto-generated method stub
-		return t_projectRepository.findAll();
-	}
+        t_projectRepository.save(t_project);
 
-	public t_project findBySn(Integer sn) {
-		// TODO Auto-generated method stub
-		return t_projectRepository.findBySn(sn);
-	}
+        return "Ok";
+    }
 
-	public void save(t_project _old_t_project) {
-		t_projectRepository.save(_old_t_project);
-		
-	}
+    public List<t_project> findAll() {
+        // TODO Auto-generated method stub
+        return t_projectRepository.findAll();
+    }
+
+    public t_project findBySn(Integer sn) {
+        // TODO Auto-generated method stub
+        return t_projectRepository.findBySn(sn);
+    }
+
+    public void save(t_project _old_t_project) {
+        t_projectRepository.save(_old_t_project);
+
+    }
 }

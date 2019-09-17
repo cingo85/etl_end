@@ -48,21 +48,21 @@ public class t_table_masterService {
 		List <t_datasource> datasourceResult = t_datasourceRepository.findByprojectId(projectId);
 		
 		for(t_datasource item:datasourceResult) {
-			if(("").equals(item.DataBaseState) && item.is_input_datasource) {
+			if(("").equals(item.DataBaseState) && item.isInputDatasource) {
 				t_table_master temp = new t_table_master();
 				temp.SN = item.sn;
 				temp.projectId = item.projectId;
 				temp.datasourceId = item.datasourceId;
-				temp.datasource_type = item.datasource_type;
-				temp.database_note = item.database_note;
-				temp.TableMasterState =item.DataBaseState;
-				temp.datasource_name = item.datasource_name;
+				temp.datasourceType = item.datasourceType;
+				temp.databaseNote = item.databaseNote;
+				temp.tableMasterState =item.DataBaseState;
+				temp.datasourceName = item.datasourceName;
 				result.add(temp);
 			}
 		}
 		
 		for(t_table_master item:tableResult) {
-			if("CsvImport".equals(item.TableMasterState)) {
+			if("CsvImport".equals(item.tableMasterState)) {
 				result.add(item);
 			}
 		}

@@ -92,7 +92,7 @@ public class t_projectController {
 //		if ("PM".equals(t_project.user)) {
 		t_project _old_t_project = t_projectService.findBySn(t_project.sn);
 
-		_old_t_project.is_close = true;
+		_old_t_project.isClose = true;
 		t_projectService.save(_old_t_project);
 
 //			succse = "關閉專案成功";

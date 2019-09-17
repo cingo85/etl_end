@@ -36,35 +36,35 @@ public class t_column_master implements java.io.Serializable{
 	
 	@ApiModelProperty(value = "欄位代碼", required = true)
 	@Column(name="column_id",nullable = false,unique=true,length=40)
-	public String column_id;
+	public String columnId;
 	
 	@ApiModelProperty(value = "欄位名稱", required = true)
 	@Column(name="column_name",nullable = false,length=100)
-	public String column_name;
+	public String columnName;
 	
 	@ApiModelProperty(value = "欄位讀取名稱", required = true)
 	@Column(name="column_read_name",length=100)
-	public String column_read_name;
+	public String columnReadName;
 	
 	@ApiModelProperty(value = "欄位中文名稱", required = true)
 	@Column(name="column_c_name",length=100)
-	public String column_c_name;
+	public String columnCname;
 	
 	@ApiModelProperty(value = "欄位是否為Pkey", required = true)
 	@Column(name="is_pk",nullable = false,length=1)
-	public boolean is_pk;
+	public boolean isPk;
 	
 	@ApiModelProperty(value = "欄位型態", required = true)
 	@Column(name="column_type",nullable = false,length=20)
-	public String column_type;
+	public String columnType;
 	
 	@ApiModelProperty(value = "欄位預設值", required = true)
 	@Column(name="column_default",nullable = false,length=255)
-	public String column_default;
+	public String columnDefault;
 	
 	@ApiModelProperty(value = "欄位是否推送", required = true)
 	@Column(name="is_datamodel_attribute",length=1)
-	public boolean is_datamodel_attribute;
+	public boolean isDatamodelAttribute;
 	
 	@ApiModelProperty(value = "狀態", required = true)
 	@Column(name="ColumnMasterState",nullable = false,length=40)
@@ -72,7 +72,7 @@ public class t_column_master implements java.io.Serializable{
 	
 	@ApiModelProperty(value = "欄位長度", required = true)
 	@Column(name="column_length",length=100)
-	public Integer column_length;
+	public Integer columnLength;
 	
 	/*
 	 * 0827
@@ -102,68 +102,68 @@ public class t_column_master implements java.io.Serializable{
 		this.tableId = tableId;
 	}
 
-	public String getColumn_id() {
-		return column_id;
+	public String getColumnId() {
+		return columnId;
 	}
 
-	public void setColumn_id(String column_id) {
-		this.column_id = column_id;
+	public void setColumnId(String columnId) {
+		this.columnId = columnId;
 	}
 
-	public String getColumn_name() {
-		return column_name;
+	public String getColumnName() {
+		return columnName;
 	}
 
-	public void setColumn_name(String column_name) {
-		this.column_name = column_name;
+	public void setColumnName(String columnName) {
+		this.columnName = columnName;
 	}
 
-	public String getColumn_read_name() {
-		return column_read_name;
+	public String getColumnReadName() {
+		return columnReadName;
 	}
 
-	public void setColumn_read_name(String column_read_name) {
-		this.column_read_name = column_read_name;
+	public void setColumnReadName(String columnReadName) {
+		this.columnReadName = columnReadName;
 	}
 
-	public String getColumn_c_name() {
-		return column_c_name;
+	public String getColumnCname() {
+		return columnCname;
 	}
 
-	public void setColumn_c_name(String column_c_name) {
-		this.column_c_name = column_c_name;
+	public void setColumnCname(String columnCname) {
+		this.columnCname = columnCname;
 	}
 
-	public boolean isIs_pk() {
-		return is_pk;
+	public boolean isPk() {
+		return isPk;
 	}
 
-	public void setIs_pk(boolean is_pk) {
-		this.is_pk = is_pk;
+	public void setPk(boolean pk) {
+		isPk = pk;
 	}
 
-	public String getColumn_type() {
-		return column_type;
+	public String getColumnType() {
+		return columnType;
 	}
 
-	public void setColumn_type(String column_type) {
-		this.column_type = column_type;
+	public void setColumnType(String columnType) {
+		this.columnType = columnType;
 	}
 
-	public String getColumn_default() {
-		return column_default;
+	public String getColumnDefault() {
+		return columnDefault;
 	}
 
-	public void setColumn_default(String column_default) {
-		this.column_default = column_default;
+	public void setColumnDefault(String columnDefault) {
+		this.columnDefault = columnDefault;
 	}
 
-	public boolean isIs_datamodel_attribute() {
-		return is_datamodel_attribute;
+	public boolean isDatamodelAttribute() {
+		return isDatamodelAttribute;
 	}
 
-	public void setIs_datamodel_attribute(boolean is_datamodel_attribute) {
-		this.is_datamodel_attribute = is_datamodel_attribute;
+	public void setDatamodelAttribute(boolean datamodelAttribute) {
+		isDatamodelAttribute = datamodelAttribute;
 	}
 
 	public String getColumnMasterState() {
@@ -174,12 +174,12 @@ public class t_column_master implements java.io.Serializable{
 		ColumnMasterState = columnMasterState;
 	}
 
-	public Integer getColumn_length() {
-		return column_length;
+	public Integer getColumnLength() {
+		return columnLength;
 	}
 
-	public void setColumn_length(Integer column_length) {
-		this.column_length = column_length;
+	public void setColumnLength(Integer columnLength) {
+		this.columnLength = columnLength;
 	}
 
 	public String getColumnInTableType() {
@@ -190,14 +190,11 @@ public class t_column_master implements java.io.Serializable{
 		this.columnInTableType = columnInTableType;
 	}
 
-	public t_table_master getT_table_master() {
+	public tw.com.leadteketl.bean.t_table_master getT_table_master() {
 		return t_table_master;
 	}
 
-	public void setT_table_master(t_table_master t_table_master) {
+	public void setT_table_master(tw.com.leadteketl.bean.t_table_master t_table_master) {
 		this.t_table_master = t_table_master;
 	}
-	
-	
-		
 }

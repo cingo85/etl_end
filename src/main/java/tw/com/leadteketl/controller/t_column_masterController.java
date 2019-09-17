@@ -1,6 +1,9 @@
 package tw.com.leadteketl.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,55 +24,55 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import tw.com.leadteketl.bean.t_column_master;
-import tw.com.leadteketl.dao.t_column_masterRepository;
 import tw.com.leadteketl.service.t_column_masterService;
 
 
 @Api(tags = "欄位表單")
 @RestController
-@RequestMapping(value="/api/t_column_master")
+@RequestMapping(value = "/api/t_column_master")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @Controller
 public class t_column_masterController {
 
-	@Autowired
-	t_column_masterService t_column_masterService;
-	
-	@ApiOperation(value = "取得欄位", notes = "取得欄位")
-	@ResponseStatus(HttpStatus.OK)
-	@GetMapping(value = "/queryAllcolumnMaster",produces =MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public List<t_column_master> getAllProject() {
-		return t_column_masterService.findAll();
-	}
-	
-	
-	@ApiOperation(value = "新建欄位", notes = "新建欄位")
-	@ApiResponses(value = {@ApiResponse(code=201,message = "新建欄位成功")})
-	@ResponseStatus(HttpStatus.CREATED)
-	@PostMapping(value = "/createNewColumnMaster", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public t_column_master createNewDataBase(@ApiParam(required = true, value = "新建欄位") @RequestBody t_column_master t_column_master) {
-		return t_column_masterService.save(t_column_master);
-	}
-	
-	@ApiOperation(value = "更新欄位",notes = "更新欄位")
-	@ApiResponses(value = {@ApiResponse(code=201,message = "更新欄位成功")})
-	@ResponseStatus(HttpStatus.OK)
-	@PostMapping(value = "/updateColumnMaster", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public t_column_master updateProject(@ApiParam(required = true, value = "更新欄位") @RequestBody t_column_master t_column_master) {
-		return t_column_masterService.save(t_column_master);
-	}
-	
-	@ApiOperation(value = "更新欄位",notes = "更新欄位")
-	@ApiResponses(value = {@ApiResponse(code=201,message = "更新欄位成功")})
-	@ResponseStatus(HttpStatus.OK)
-	@PostMapping(value = "/queryColumnMasterByTableId", produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public List<t_column_master> queryColumnMasterByTableId(@ApiParam(required = true, value = "更新欄位") @RequestParam(value = "tableId") String tableId) {
-		System.out.println(tableId);
-		List<t_column_master> xxx = t_column_masterService.findByTableId(tableId);
-		for(t_column_master item :xxx) {
-			System.out.println(item);
-		}
-		return t_column_masterService.findByTableId(tableId);
-	}
-	
+    public Object tableName = new Object();
+
+    @Autowired
+    t_column_masterService t_column_masterService;
+
+    @ApiOperation(value = "取得欄位", notes = "取得欄位")
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping(value = "/queryAllcolumnMaster", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<t_column_master> getAllProject() {
+        return t_column_masterService.findAll();
+    }
+
+
+    @ApiOperation(value = "新建欄位", notes = "新建欄位")
+    @ApiResponses(value = {@ApiResponse(code = 201, message = "新建欄位成功")})
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping(value = "/createNewColumnMaster", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public t_column_master createNewDataBase(@ApiParam(required = true, value = "新建欄位") @RequestBody t_column_master t_column_master) {
+        return t_column_masterService.save(t_column_master);
+    }
+
+    @ApiOperation(value = "更新欄位", notes = "更新欄位")
+    @ApiResponses(value = {@ApiResponse(code = 201, message = "更新欄位成功")})
+    @ResponseStatus(HttpStatus.OK)
+    @PostMapping(value = "/updateColumnMaster", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public t_column_master updateProject(@ApiParam(required = true, value = "更新欄位") @RequestBody t_column_master t_column_master) {
+        return t_column_masterService.save(t_column_master);
+    }
+
+    @ApiOperation(value = "更新欄位", notes = "更新欄位")
+    @ApiResponses(value = {@ApiResponse(code = 201, message = "更新欄位成功")})
+    @ResponseStatus(HttpStatus.OK)
+    @PostMapping(value = "/queryColumnMasterByTableId", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<t_column_master> queryColumnMasterByTableId(@ApiParam(required = true, value = "更新欄位") @RequestParam(value = "tableId") String tableId) {
+        String tableIdTemp[] = tableId.split("\\.");
+        Map<String, ArrayList<String>> result = new HashMap<String, ArrayList<String>>();
+        String ID = tableIdTemp[0];
+        List<t_column_master> masterList = t_column_masterService.findByTableId(ID);
+        return masterList;
+    }
+
 }
