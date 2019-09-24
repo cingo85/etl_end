@@ -1,6 +1,7 @@
 package tw.com.leadteketl.controller;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,8 +77,23 @@ public class t_datasourceController {
 	@ResponseStatus(HttpStatus.OK)
 	@PostMapping(value = "/queryDataSourceByProjectId", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<t_datasource> queryDataSourceByProjectId(@ApiParam(required = true, value = "專案表單") @RequestBody t_datasource t_datasource){
-		System.out.println(t_datasource.getProjectId());
 		return t_datasourceService.findByprojectId(t_datasource.projectId);
+	}
+
+	@ApiOperation(value = "查詢輸出資料庫", notes = "查詢輸出資料庫")
+	@ApiResponses(value = { @ApiResponse(code = 201, message = "查詢專案資料庫") })
+	@ResponseStatus(HttpStatus.OK)
+	@PostMapping(value = "/queryDataSourceByProjectIdWithOutPut", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<t_datasource> queryDataSourceByProjectIdWithOutPut(@ApiParam(required = true, value = "專案表單") @RequestBody t_datasource t_datasource){
+
+		List<t_datasource> temp = t_datasourceService.findByprojectId(t_datasource.projectId);
+		List<t_datasource> result = new ArrayList<t_datasource>();
+		for(t_datasource item :temp){
+			if(item.isOutputDatasource){
+				result.addAll(temp);
+			}
+		}
+		return result;
 	}
 
 
