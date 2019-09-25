@@ -90,7 +90,7 @@ public class t_datasourceController {
 		List<t_datasource> result = new ArrayList<t_datasource>();
 		for(t_datasource item :temp){
 			if(item.isOutputDatasource){
-				result.addAll(temp);
+				result.add(item);
 			}
 		}
 		return result;
