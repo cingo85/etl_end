@@ -33,35 +33,39 @@ public class t_table_detail  implements java.io.Serializable{
 	
 	@ApiModelProperty(value = "專案代碼", required = true)
 	@Column(name="project_id",nullable = false,unique=true,length=10)
-	public String project_id;
+	public String projectId;
 	
 	@ApiModelProperty(value = "資料庫代碼", required = true)
 	@Column(name="datasource_id",nullable = false,unique=true,length=10)
-	public String datasource_id;
+	public String datasourceId;
 	
 	@ApiModelProperty(value = "表單代碼", required = true)
 	@Column(name="table_id",nullable = false,unique=true,length=10)
-	public String table_id;
+	public String tableId;
 	
 	@ApiModelProperty(value = "資料表邏輯代碼", required = true)
 	@Column(name="table_detail_id",nullable = false,unique=true,length=10)
-	public String table_detail_id;
+	public String tableDetailId;
 	
 	@ApiModelProperty(value = "串接資料庫代碼", required = true)
 	@Column(name="source_datasource_id",nullable = false,length=10)
-	public String source_datasource_id;
+	public String sourceDatasourceId;
 	
 	@ApiModelProperty(value = "串接表單代碼", required = true)
 	@Column(name="source_table_id",nullable = false,length=10)
-	public String source_table_id;
+	public String sourceTableId;
 	
 	@ApiModelProperty(value = "串接表單搜尋代碼", required = true)
-	@Column(name="source_table_search_id",nullable = false,length=10)
-	public String source_table_search_id;
+	@Column(name="table_search_name",nullable = false,length=10)
+	public String tableSearchName;
 	
-	@ApiModelProperty(value = "搜尋Ukey序列", required = true)
-	@Column(name="searched_uk",nullable = false,length=255)
-	public String searched_uk;
+	@ApiModelProperty(value = "串接表單搜尋Ukey序列", required = true)
+	@Column(name="table_search_uk",nullable = false,length=255)
+	public String tableSearchUk;
+
+	@ApiModelProperty(value = "串接表單搜尋型態", required = true)
+	@Column(name="table_search_method_type",nullable = false,length=255)
+	public String tableSearchMethodType;
 	
 	@ManyToOne
 	@JoinColumns({@JoinColumn(name="t_table_detail_project_id",referencedColumnName = "project_id"),
@@ -69,13 +73,5 @@ public class t_table_detail  implements java.io.Serializable{
 				  @JoinColumn(name="t_table_detail_table_id",referencedColumnName = "table_id")
 	})
 	public t_table_master t_table_master;
-	
-	@ManyToOne
-	@JoinColumns({@JoinColumn(name="t_table_detail_source_datasource_id",referencedColumnName = "datasource_id"),
-				  @JoinColumn(name="t_table_detail_source_table_id" , referencedColumnName = "table_id"),
-				  @JoinColumn(name="t_table_detail_source_table_search_id",referencedColumnName = "table_search_id")
-	})
-	public t_table_search t_table_search;
-	
 
 }
