@@ -46,6 +46,10 @@ public class t_table_detail  implements java.io.Serializable{
 	@ApiModelProperty(value = "資料表邏輯代碼", required = true)
 	@Column(name="table_detail_id",nullable = false,unique=true,length=10)
 	public String tableDetailId;
+
+	@ApiModelProperty(value = "搜尋Ukey序列", required = true)
+	@Column(name="searched_uk",nullable = true,length=255)
+	public String searchedUk;
 	
 	@ApiModelProperty(value = "串接資料庫代碼", required = true)
 	@Column(name="source_datasource_id",nullable = false,length=10)

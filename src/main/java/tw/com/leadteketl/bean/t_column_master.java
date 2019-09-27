@@ -73,11 +73,7 @@ public class t_column_master implements java.io.Serializable{
 	@ApiModelProperty(value = "欄位長度", required = true)
 	@Column(name="column_length",length=100)
 	public Integer columnLength;
-	
-	/*
-	 * 0827
-	 * */
-	
+
 	@ApiModelProperty(value = "欄位在表內型態", required = true)
 	@Column(name="columnInTableType",length=100)
 	public String columnInTableType;
